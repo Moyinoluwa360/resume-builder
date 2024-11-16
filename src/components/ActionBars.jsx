@@ -1,5 +1,14 @@
-export default function ActionBars (){
+import styled from "styled-components"
+
+export default function ActionBarsFn (){
     return (
-        <h1>ddd</h1>
+        <ActionBars>
+            lol
+        </ActionBars>
     )
 }
+
+const ActionBars = styled.div`
+    flex-basis: 10%;
+    background-color: brown;
+`
