@@ -19,22 +19,24 @@ const ActionBars = styled.div`
     flex-basis: 10%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 25px;
+    align-items: flex-end;
     div{
         display: flex;
         flex-direction: column;
-        width: 50%;
-        height: 50px;
+        width: 70%;
+        height: 100px;
         justify-content: center;
         align-items: center;
         border-radius: 10px;
         span{
-            font-size: 16px;
-            font-weight: 100;
+            font-size: 18px;
+            font-weight: bolder;
+            color: #4e4e4e;
         }
         img{
-            height: 20px;
-            width: 20px;
+            height: 30px;
+            width: 30px;
         }
         &:hover{
             background-color: #dadada;
