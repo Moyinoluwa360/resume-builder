@@ -6,11 +6,17 @@ import { useState } from "react"
 
 function App() {
   const [personalInfoPos, setPersonalInfoPos] = useState("right")
+  const [color, setColor] = useState("#ff0000");
   return (
     <Body>
       <ActionBars/>
-      <ActionCenter setPosition = {setPersonalInfoPos}/>
-      <Resume position = {personalInfoPos}/>
+      <ActionCenter 
+        setPosition = {setPersonalInfoPos}
+        color = {color}
+        setColor = {setColor} />
+      <Resume 
+        position = {personalInfoPos}
+        color = {color}/>
     </Body>
   )
 }

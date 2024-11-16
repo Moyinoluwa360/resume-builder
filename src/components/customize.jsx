@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export default function CustomizeDiv(prop){
+    const handleColorChange = (event) => {
+    prop.setColor(event.target.value);
+  };
+  console.log(prop.color)
     return(
         <Customize>
             <div className="layoutCon">
@@ -10,7 +14,10 @@ export default function CustomizeDiv(prop){
                      className="layout layout1"
                      onClick={()=> prop.setPosition("top")}
                      >
-                        <div className="layout-child"></div>
+                        <div 
+                            className="layout-child" 
+                            color = {prop.color}
+                            ></div>
                         <div className="layout-child"></div>
                     </div>
                     <span className="layout-name">Top</span>
@@ -18,7 +25,7 @@ export default function CustomizeDiv(prop){
                      className="layout layout2"
                      onClick={()=> prop.setPosition("left")}
                      >
-                        <div className="layout-child"></div>
+                        <div className="layout-child" color = {prop.color}></div>
                         <div className="layout-child"></div>
                     </div>
                     <span className="layout-name">Left</span>
@@ -27,12 +34,23 @@ export default function CustomizeDiv(prop){
                     onClick={()=> prop.setPosition("right")}
                     >
                         <div className="layout-child"></div>
-                        <div className="layout-child"></div>
+                        <div className="layout-child" color = {prop.color}></div>
                     </div>
                     <span className="layout-name">Right</span>
                 </div>
             </div>
-            <div className="color"></div>
+            <div className="color">
+                <span>Color</span>
+                <input
+                    type="color"
+                    value={prop.color}
+                    onChange={handleColorChange}
+                    style={{ marginBottom: "20px" }}
+                />
+                <div>
+                    Choose acent color
+                </div>
+            </div>
             <div className="fonts"></div>
         </Customize>
     )
@@ -72,7 +90,7 @@ const Customize = styled.div`
                 }
                 :first-child{
                     border-radius: 10px 10px 0 0;
-                    background-color: blue;
+                    background-color: ${(prop)=> prop.color};
                 }
                 :last-child{
                     border-radius: 0 0 10px 10px;
@@ -87,7 +105,7 @@ const Customize = styled.div`
                 }
                 :first-child{
                     border-radius: 10px 0 0 10px;
-                    background-color: blue;
+                    background-color: ${(prop)=> prop.color};
                 }
                 :last-child{
                     border-radius: 0 10px 10px 0;
@@ -105,7 +123,7 @@ const Customize = styled.div`
                 }
                 :last-child{
                     border-radius: 0 10px 10px 0;
-                    background-color: blue;
+                    background-color: ${(prop)=> prop.color};
                 }
             }
         }

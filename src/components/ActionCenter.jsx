@@ -8,7 +8,10 @@ export default function ActionCenterFn (prop){
                 <span> Clear Resume</span>
             </div>
             <section>
-                <CustomizeDiv setPosition = {prop.setPosition}/>
+                <CustomizeDiv 
+                    setPosition = {prop.setPosition}
+                    color = {prop.color}
+                    setColor = {prop.setColor}/>
             </section>
         </ActionCenter>
     )
