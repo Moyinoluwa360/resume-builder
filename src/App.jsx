@@ -16,7 +16,6 @@ function App() {
 }
 
 const Body = styled.div`
-  background-color: #cacfd3;
   width: 85%;
   margin-top: 20px;
   margin-bottom: 50px;
