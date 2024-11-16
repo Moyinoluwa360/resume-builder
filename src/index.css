@@ -1,0 +1,17 @@
+*{
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+}
+body{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgb(215, 228, 228);
+}
+#root{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
