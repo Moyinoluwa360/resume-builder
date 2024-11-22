@@ -14,10 +14,10 @@ export default function CustomizeDiv(prop){
                      className="layout layout1"
                      onClick={()=> prop.setPosition("top")}
                      >
-                        <div 
+                        <ColoredDiv 
                             className="layout-child" 
                             color = {prop.color}
-                            ></div>
+                            ></ColoredDiv>
                         <div className="layout-child"></div>
                     </div>
                     <span className="layout-name">Top</span>
@@ -25,7 +25,10 @@ export default function CustomizeDiv(prop){
                      className="layout layout2"
                      onClick={()=> prop.setPosition("left")}
                      >
-                        <div className="layout-child" color = {prop.color}></div>
+                        <ColoredDiv 
+                            className="layout-child" 
+                            color = {prop.color}>
+                            </ColoredDiv>
                         <div className="layout-child"></div>
                     </div>
                     <span className="layout-name">Left</span>
@@ -34,24 +37,45 @@ export default function CustomizeDiv(prop){
                     onClick={()=> prop.setPosition("right")}
                     >
                         <div className="layout-child"></div>
-                        <div className="layout-child" color = {prop.color}></div>
+                        <ColoredDiv 
+                            className="layout-child" 
+                            color = {prop.color}>
+                            </ColoredDiv>
                     </div>
                     <span className="layout-name">Right</span>
                 </div>
             </div>
             <div className="color">
                 <span>Color</span>
-                <input
-                    type="color"
-                    value={prop.color}
-                    onChange={handleColorChange}
-                    style={{ marginBottom: "20px" }}
-                />
                 <div>
-                    Choose acent color
+                    <div>
+                        Choose accent color
+                    </div>
+                    <input
+                        type="color"
+                        value={prop.color}
+                        onChange={handleColorChange}
+                        style={{ marginBottom: "20px" }}
+                    />
                 </div>
             </div>
-            <div className="fonts"></div>
+            <div className="fonts">
+                <span>Fonts</span>
+                <div>
+                    <div>
+                        <span className="serif">Aa</span>
+                        <span className="serif">Serif</span>
+                    </div>
+                    <div>
+                        <span className="sans">Aa</span>
+                        <span className="sans">Sans</span>
+                    </div>
+                    <div>
+                        <span className="mono">Aa</span>
+                        <span className="mono">Mono</span>
+                    </div>
+                </div>
+            </div>
         </Customize>
     )
 }
@@ -90,7 +114,6 @@ const Customize = styled.div`
                 }
                 :first-child{
                     border-radius: 10px 10px 0 0;
-                    background-color: ${(prop)=> prop.color};
                 }
                 :last-child{
                     border-radius: 0 0 10px 10px;
@@ -105,7 +128,6 @@ const Customize = styled.div`
                 }
                 :first-child{
                     border-radius: 10px 0 0 10px;
-                    background-color: ${(prop)=> prop.color};
                 }
                 :last-child{
                     border-radius: 0 10px 10px 0;
@@ -123,9 +145,67 @@ const Customize = styled.div`
                 }
                 :last-child{
                     border-radius: 0 10px 10px 0;
-                    background-color: ${(prop)=> prop.color};
                 }
             }
         }
     }
+    .color{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        span{
+            font-size: 30px;
+            font-weight: bolder;
+        }
+        div{
+            display: flex;
+            gap: 10px;
+            margin-left: 15px;
+            div{
+                font-size: 20px;
+                font-weight: lighter;
+            }
+            input{
+                height: 30px;
+            }
+        }
+    }
+    .fonts{
+        >span{
+            font-size: 30px;
+            font-weight: bolder;
+        }
+        >div{
+            display: flex;
+            gap: 5px;
+            div{
+                height: 80px;
+                width: 80px;
+                border: 1px solid black;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2px;
+                margin: 10px 0 0 25px;
+                :first-child{
+                    font-size: 30px;
+                    font-weight: bold;
+                }
+                .serif{
+                    font-family: serif;
+                }
+                .sans{
+                    font-family: sans-serif;
+                }
+                .mono{
+                    font-family: 'Courier New', Courier, monospace;
+                }
+            }
+        }
+    }
+`
+const ColoredDiv = styled.div`
+    background-color: ${(prop)=> prop.color};
 `
