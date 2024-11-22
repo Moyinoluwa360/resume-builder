@@ -7,13 +7,22 @@ import { useState } from "react"
 function App() {
   const [personalInfoPos, setPersonalInfoPos] = useState("right")
   const [color, setColor] = useState("#ff0000");
+  const [personalData, setPersonalData] = useState({
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    address: "",
+  });
   return (
     <Body>
       <ActionBars/>
       <ActionCenter 
         setPosition = {setPersonalInfoPos}
         color = {color}
-        setColor = {setColor} />
+        setColor = {setColor}
+        personalData = {personalData}
+        setPersonalData = {setPersonalData}
+        />
       <Resume 
         position = {personalInfoPos}
         color = {color}/>
