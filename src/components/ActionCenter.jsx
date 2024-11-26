@@ -10,15 +10,16 @@ export default function ActionCenterFn (prop){
             </div>
             <section>
                 {/*
-                <CustomizeDiv 
+                    <CustomizeDiv 
                     setPosition = {prop.setPosition}
                     color = {prop.color}
                     setColor = {prop.setColor}
                 />
-            */}
+                */}
                 <ContentFn
                     personalData = {prop.personalData}
-                    setPersonalData = {prop.setPersonalData}/>
+                    setPersonalData = {prop.setPersonalData}
+                />
             </section>
         </ActionCenter>
     )

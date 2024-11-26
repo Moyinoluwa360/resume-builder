@@ -1,6 +1,23 @@
 import styled from "styled-components";
-
+import {useState} from "react";
 export default function ContentFn(prop){
+      const [eduToggled, setEduToggled] = useState("none")
+      const [expToggled, setExpToggled] = useState("none")
+      
+      const handleToggleChange = (bar)=>{
+        if(bar === "edu" & eduToggled === "none"){
+          setEduToggled("block")
+          setExpToggled("none")
+        }else if(bar === "exp" & expToggled === "none"){
+          setExpToggled("block")
+          setEduToggled("none")
+        }else if(bar === "edu" & eduToggled === "block"){
+          setEduToggled("none")
+        }else if(bar === "exp" & expToggled === "block"){
+          setExpToggled("none")
+        }
+      }
+
       const handleChange = (e) => {
         const { name, value } = e.target;
         prop.setPersonalData({
@@ -56,7 +73,7 @@ export default function ContentFn(prop){
             </div>
             <div style={{ marginBottom: "1rem" }}>
               <label htmlFor="address">Address</label>
-              <textarea
+              <input
                 id="address"
                 name="address"
                 value={prop.personalData.address}
@@ -66,16 +83,167 @@ export default function ContentFn(prop){
                 required
               />
             </div>
-            <button type="submit" style={{ padding: "0.5rem 1rem" }}>
-              Submit
-            </button>
           </form>
+          <Education onClick={()=>{
+            handleToggleChange("edu")
+          }}>
+            <span>
+              <img src="/school.svg" alt="education logo" />
+              <span>Education</span>
+            </span>
+            {eduToggled === "none" ? <img src="/menu-down.svg" alt="menu down"/> : <img src="/menu-up.svg" alt="menu down"/>}
+          </Education>
+          <EducationToggled style={{display: eduToggled}}>
+            <div className="educations"></div>
+            <div className="addEdu">
+              <div>
+                <img src="/plus.svg" alt="add experience icon" />
+                Education
+              </div>
+            </div>
+            <div className="eduForm"></div>
+          </EducationToggled>
+          <Experience onClick={()=>{
+            handleToggleChange("exp")
+          }}>
+            <span>
+              <img src="/experience.svg" alt="experience logo" />
+              <span>Experience</span>
+            </span>
+            {expToggled === "none" ? <img src="/menu-down.svg" alt="menu down"/> : <img src="/menu-up.svg" alt="menu down"/>}
+          </Experience>
+          <ExperienceToggled style={{display: expToggled}}>
+            <div className="experiences"></div>
+            <div className="addExp">
+              <div>
+                <img src="/plus.svg" alt="add experience icon" />
+                Experience
+              </div>
+            </div>
+            <div className="expForm"></div>
+          </ExperienceToggled>
         </Content>
       );
 }
 
 const Content = styled.div`
     box-sizing: border-box;
-    background-color: rebeccapurple;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    form{
+      display: flex;
+      flex-direction: column;
+      div{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        label{
+          font-size: 16px;
+          font-weight: bold;
+        }
+        input{
+          height: 40px;
+          width: 90%;
+          border-radius: 10px;
+          padding-left: 20px;
+          outline:none;
+          border: none;
+        }
+        input:focus{
+          border: 1px solid #8ee795;
+        }
+      }
+    }
+`
+const Education = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  gap: 10px;
+  width: 100%;
+  justify-content: space-between;
+  >span{
+    display:flex;
+    align-items: center;
+    gap: 20px;
+  }
+  img{
+    height: 30px;
+  }
+  :last-child{
+    justify-self: end;
+  }
+`
+const Experience = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  gap: 10px;
+  width: 100%;
+  justify-content: space-between;
+  >span{
+    display:flex;
+    align-items: center;
+    gap: 20px;
+  }
+  img{
+    height: 30px;
+  }
+  :last-child{
+    justify-self: end;
+  }
+`
+const EducationToggled = styled.div`
+  .experiences{
+    width: 100%;
+  }
+  .addEdu{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    div{
+      height: 30px;
+      width: 25%;
+      border-radius: 12px;
+      border: 1px solid #a1a1a1eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px;
+      gap: 3px;
+      img{
+        height: 30px;
+        width: 20px;
+      }
+    }
+  }
+`
 
+const ExperienceToggled = styled.div`
+  .educations{
+    width: 100%;
+  }
+  .addExp{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    div{
+      height: 30px;
+      width: 25%;
+      border-radius: 12px;
+      border: 1px solid #a1a1a1eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px;
+      gap: 3px;
+      img{
+        height: 30px;
+        width: 20px;
+      }
+    }
+  }
 `
