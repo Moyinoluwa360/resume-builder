@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
-const EducationForm = () => {
+const ExperienceForm = () => {
   const [formData, setFormData] = useState({
-    school: "",
-    degree: "",
+    companyName: "",
+    positionTitle: "",
     startDate: "",
     endDate: "",
     location: "",
+    description: "",
   });
 
   const handleChange = (e) => {
@@ -19,34 +20,35 @@ const EducationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Education Data Submitted:", formData);
+    console.log("Experience Data Submitted:", formData);
+    // You can send this data to an API or perform other actions
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "0 auto" }}>
-      <h2>Education Form</h2>
+    <div style={{ maxWidth: "500px", margin: "0 auto" }}>
+      <h2>Experience Form</h2>
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: "1rem" }}>
-          <label htmlFor="school">School</label>
+          <label htmlFor="companyName">Company Name</label>
           <input
             type="text"
-            id="school"
-            name="school"
-            value={formData.school}
+            id="companyName"
+            name="companyName"
+            value={formData.companyName}
             onChange={handleChange}
-            placeholder="Enter your school name"
+            placeholder="Enter company name"
             required
           />
         </div>
         <div style={{ marginBottom: "1rem" }}>
-          <label htmlFor="degree">Degree</label>
+          <label htmlFor="positionTitle">Position Title</label>
           <input
             type="text"
-            id="degree"
-            name="degree"
-            value={formData.degree}
+            id="positionTitle"
+            name="positionTitle"
+            value={formData.positionTitle}
             onChange={handleChange}
-            placeholder="Enter your degree"
+            placeholder="Enter position title"
             required
           />
         </div>
@@ -80,7 +82,19 @@ const EducationForm = () => {
             name="location"
             value={formData.location}
             onChange={handleChange}
-            placeholder="Enter the location"
+            placeholder="Enter location"
+            required
+          />
+        </div>
+        <div style={{ marginBottom: "1rem" }}>
+          <label htmlFor="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            placeholder="Describe your responsibilities and achievements"
+            rows="4"
             required
           />
         </div>
@@ -92,4 +106,4 @@ const EducationForm = () => {
   );
 };
 
-export default EducationForm;
+export default ExperienceForm;
