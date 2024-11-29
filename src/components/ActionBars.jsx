@@ -1,13 +1,17 @@
 import styled from "styled-components"
 
-export default function ActionBarsFn (){
+export default function ActionBarsFn (props){
     return (
         <ActionBars>
-            <div>
+            <div onClick={()=>{
+                props.setActionCenter("content")
+            }}>
                 <img src="/content.svg" alt="content icon" />
                 <span>Content</span>
             </div>
-            <div>
+            <div onClick={()=>{
+                props.setActionCenter("customize")
+            }}>
                 <img src="/customize.svg" alt="customize icon" />
                 <span>Customize</span>
             </div>

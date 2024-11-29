@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import CustomizeDiv from "./customize"
 import ContentFn from "./content"
-export default function ActionCenterFn (prop){
+export default function ActionCenterFn (props){
     return (
         <ActionCenter>
             <div className="clearResume">
@@ -9,17 +9,18 @@ export default function ActionCenterFn (prop){
                 <span> Clear Resume</span>
             </div>
             <section>
-                {/*
+                { props.actionCenter === "content" ?
+                    <ContentFn
+                    personalData = {props.personalData}
+                    setPersonalData = {props.setPersonalData}
+                />
+                :
                     <CustomizeDiv 
-                    setPosition = {prop.setPosition}
-                    color = {prop.color}
-                    setColor = {prop.setColor}
+                    setPosition = {props.setPosition}
+                    color = {props.color}
+                    setColor = {props.setColor}
                 />
-                */}
-                <ContentFn
-                    personalData = {prop.personalData}
-                    setPersonalData = {prop.setPersonalData}
-                />
+                }
             </section>
         </ActionCenter>
     )

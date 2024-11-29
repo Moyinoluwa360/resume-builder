@@ -6,7 +6,8 @@ import { useState } from "react"
 
 function App() {
   const [personalInfoPos, setPersonalInfoPos] = useState("right")
-  const [color, setColor] = useState("#ff0000");
+  const [color, setColor] = useState("#977676");
+  const [actionCenter, setActionCenter] = useState("content")
   const [personalData, setPersonalData] = useState({
     fullName: "",
     email: "",
@@ -15,13 +16,16 @@ function App() {
   });
   return (
     <Body>
-      <ActionBars/>
+      <ActionBars
+        setActionCenter = {setActionCenter}
+      />
       <ActionCenter 
         setPosition = {setPersonalInfoPos}
         color = {color}
         setColor = {setColor}
         personalData = {personalData}
         setPersonalData = {setPersonalData}
+        actionCenter = {actionCenter}
         />
       <Resume 
         position = {personalInfoPos}
