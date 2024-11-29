@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
-const ExperienceForm = () => {
+const ExperienceForm = (props) => {
   const [formData, setFormData] = useState({
     companyName: "",
     positionTitle: "",
@@ -21,12 +22,10 @@ const ExperienceForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Experience Data Submitted:", formData);
-    // You can send this data to an API or perform other actions
   };
 
   return (
     <div style={{ maxWidth: "500px", margin: "0 auto" }}>
-      <h2>Experience Form</h2>
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: "1rem" }}>
           <label htmlFor="companyName">Company Name</label>
@@ -98,12 +97,29 @@ const ExperienceForm = () => {
             required
           />
         </div>
-        <button type="submit" style={{ padding: "0.5rem 1rem" }}>
-          Submit
-        </button>
+        <Button type="submit" 
+            style={{  }}
+            onClick={()=>{
+                props.setExpFormDisplay("false")
+            }}>
+          save
+        </Button>
       </form>
     </div>
   );
 };
+
+const Button = styled.button`
+    padding: 0.5rem 1rem;
+    width: 100px;
+    font-weight: bolder;
+    color: white;
+    background-color:#838fff;
+    border:none;
+    border-radius:10px;
+    &:hover{
+        background-color:#c2c8ff;
+    }
+`
 
 export default ExperienceForm;

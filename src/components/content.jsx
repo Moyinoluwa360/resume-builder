@@ -1,9 +1,15 @@
 import styled from "styled-components";
 import {useState} from "react";
+import EducationForm from "./educationForm";
+import ExperienceForm from "./experienceForm";
 export default function ContentFn(prop){
       const [eduToggled, setEduToggled] = useState("none")
       const [expToggled, setExpToggled] = useState("none")
-      
+      const [eduFormDisplay, setEduFormDisplay] = useState("false")
+      const [expFormDisplay, setExpFormDisplay] = useState("false")
+      const [eduDiv, setEduDiv] = useState("true")
+      const [expDiv, setExpDiv] = useState("true")
+
       const handleToggleChange = (bar)=>{
         if(bar === "edu" & eduToggled === "none"){
           setEduToggled("block")
@@ -17,6 +23,8 @@ export default function ContentFn(prop){
           setExpToggled("none")
         }
       }
+
+      
 
       const handleChange = (e) => {
         const { name, value } = e.target;
@@ -94,14 +102,17 @@ export default function ContentFn(prop){
             {eduToggled === "none" ? <img src="/menu-down.svg" alt="menu down"/> : <img src="/menu-up.svg" alt="menu down"/>}
           </Education>
           <EducationToggled style={{display: eduToggled}}>
-            <div className="educations"></div>
-            <div className="addEdu">
-              <div>
-                <img src="/plus.svg" alt="add experience icon" />
-                Education
+            <div className="educations">
+              <div className="addEdu">
+                <div onClick={()=>{
+                  setEduFormDisplay("true")
+                }}>
+                  <img src="/plus.svg" alt="add experience icon" />
+                  Education
+                </div>
               </div>
             </div>
-            <div className="eduForm"></div>
+            {eduFormDisplay === "true" ? <EducationForm setEduFormDisplay = {setEduFormDisplay}/> :""}
           </EducationToggled>
           <Experience onClick={()=>{
             handleToggleChange("exp")
@@ -113,14 +124,17 @@ export default function ContentFn(prop){
             {expToggled === "none" ? <img src="/menu-down.svg" alt="menu down"/> : <img src="/menu-up.svg" alt="menu down"/>}
           </Experience>
           <ExperienceToggled style={{display: expToggled}}>
-            <div className="experiences"></div>
-            <div className="addExp">
-              <div>
-                <img src="/plus.svg" alt="add experience icon" />
-                Experience
+            <div className="experience">
+              <div className="addExp">
+                <div onClick={()=>{
+                  setExpFormDisplay("true")
+                }}>
+                  <img src="/plus.svg" alt="add experience icon" />
+                  Experience
+                </div>
               </div>
             </div>
-            <div className="expForm"></div>
+            {expFormDisplay === "true" ? <ExperienceForm setExpFormDisplay = {setExpFormDisplay} /> :""}
           </ExperienceToggled>
         </Content>
       );

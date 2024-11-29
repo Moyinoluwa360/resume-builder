@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
-const EducationForm = () => {
+import styled from "styled-components";
+const EducationForm = (props) => {
   const [formData, setFormData] = useState({
     school: "",
     degree: "",
@@ -24,7 +24,6 @@ const EducationForm = () => {
 
   return (
     <div style={{ maxWidth: "400px", margin: "0 auto" }}>
-      <h2>Education Form</h2>
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: "1rem" }}>
           <label htmlFor="school">School</label>
@@ -60,8 +59,7 @@ const EducationForm = () => {
             onChange={handleChange}
             required
           />
-        </div>
-        <div style={{ marginBottom: "1rem" }}>
+
           <label htmlFor="endDate">End Date</label>
           <input
             type="date"
@@ -84,12 +82,29 @@ const EducationForm = () => {
             required
           />
         </div>
-        <button type="submit" style={{ padding: "0.5rem 1rem" }}>
-          Submit
-        </button>
+        <Button type="submit" 
+            style={{  }}
+            onClick={()=>{
+                props.setEduFormDisplay("false")
+            }}>
+          save
+        </Button>
       </form>
     </div>
   );
 };
+
+const Button = styled.button`
+    padding: 0.5rem 1rem;
+    width: 100px;
+    font-weight: bolder;
+    color: white;
+    background-color:#838fff;
+    border:none;
+    border-radius:10px;
+    &:hover{
+        background-color:#c2c8ff;
+    }
+`
 
 export default EducationForm;
