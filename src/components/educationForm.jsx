@@ -1,25 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 const EducationForm = (props) => {
-  const [formData, setFormData] = useState({
-    school: "",
-    degree: "",
-    startDate: "",
-    endDate: "",
-    location: "",
-  });
-
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    props.setEduData({
+      ...props.eduData,
       [name]: value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Education Data Submitted:", formData);
+    console.log("Education Data Submitted:", props.eduData);
   };
 
   return (
@@ -31,7 +24,7 @@ const EducationForm = (props) => {
             type="text"
             id="school"
             name="school"
-            value={formData.school}
+            value={props.eduData.school}
             onChange={handleChange}
             placeholder="Enter your school name"
             required
@@ -43,7 +36,7 @@ const EducationForm = (props) => {
             type="text"
             id="degree"
             name="degree"
-            value={formData.degree}
+            value={props.eduData.degree}
             onChange={handleChange}
             placeholder="Enter your degree"
             required
@@ -55,7 +48,7 @@ const EducationForm = (props) => {
             type="date"
             id="startDate"
             name="startDate"
-            value={formData.startDate}
+            value={props.eduData.startDate}
             onChange={handleChange}
             required
           />
@@ -65,7 +58,7 @@ const EducationForm = (props) => {
             type="date"
             id="endDate"
             name="endDate"
-            value={formData.endDate}
+            value={props.eduData.endDate}
             onChange={handleChange}
             required
           />
@@ -76,7 +69,7 @@ const EducationForm = (props) => {
             type="text"
             id="location"
             name="location"
-            value={formData.location}
+            value={props.eduData.location}
             onChange={handleChange}
             placeholder="Enter the location"
             required

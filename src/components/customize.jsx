@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export default function CustomizeDiv(prop){
+export default function CustomizeDiv(props){
     const handleColorChange = (event) => {
-    prop.setColor(event.target.value);
+    this.props.setColor(event.target.value);
   };
-  console.log(prop.color)
+  console.log(props.color)
     return(
         <Customize>
             <div className="layoutCon">
@@ -12,34 +12,34 @@ export default function CustomizeDiv(prop){
                 <div className="layout-temp">
                     <div
                      className="layout layout1"
-                     onClick={()=> prop.setPosition("top")}
+                     onClick={()=> props.setPosition("top")}
                      >
                         <ColoredDiv 
                             className="layout-child" 
-                            color = {prop.color}
+                            color = {props.color}
                             ></ColoredDiv>
                         <div className="layout-child"></div>
                     </div>
                     <span className="layout-name">Top</span>
                     <div
                      className="layout layout2"
-                     onClick={()=> prop.setPosition("left")}
+                     onClick={()=> props.setPosition("left")}
                      >
                         <ColoredDiv 
                             className="layout-child" 
-                            color = {prop.color}>
+                            color = {props.color}>
                             </ColoredDiv>
                         <div className="layout-child"></div>
                     </div>
                     <span className="layout-name">Left</span>
                     <div 
                     className="layout layout3"
-                    onClick={()=> prop.setPosition("right")}
+                    onClick={()=> props.setPosition("right")}
                     >
                         <div className="layout-child"></div>
                         <ColoredDiv 
                             className="layout-child" 
-                            color = {prop.color}>
+                            color = {props.color}>
                             </ColoredDiv>
                     </div>
                     <span className="layout-name">Right</span>
@@ -53,7 +53,7 @@ export default function CustomizeDiv(prop){
                     </div>
                     <input
                         type="color"
-                        value={prop.color}
+                        value={props.color}
                         onChange={handleColorChange}
                         style={{ marginBottom: "20px" }}
                     />

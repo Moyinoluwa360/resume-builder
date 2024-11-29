@@ -14,6 +14,21 @@ function App() {
     phoneNumber: "",
     address: "",
   });
+  const [eduData, setEduData] = useState({
+    school: "",
+    degree: "",
+    startDate: "",
+    endDate: "",
+    location: "",
+  });
+  const [expData, setExpData] = useState({
+    companyName: "",
+    positionTitle: "",
+    startDate: "",
+    endDate: "",
+    location: "",
+    description: "",
+  });
   return (
     <Body>
       <ActionBars
@@ -26,6 +41,10 @@ function App() {
         personalData = {personalData}
         setPersonalData = {setPersonalData}
         actionCenter = {actionCenter}
+        eduData = {eduData}
+        setEduData = {setEduData}
+        expData = {expData}
+        setExpData = {setExpData}
         />
       <Resume 
         position = {personalInfoPos}

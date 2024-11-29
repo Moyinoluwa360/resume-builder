@@ -2,26 +2,18 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const ExperienceForm = (props) => {
-  const [formData, setFormData] = useState({
-    companyName: "",
-    positionTitle: "",
-    startDate: "",
-    endDate: "",
-    location: "",
-    description: "",
-  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    props.setExpData({
+      ...props.expData,
       [name]: value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Experience Data Submitted:", formData);
+    console.log("Experience Data Submitted:", props.expData);
   };
 
   return (
@@ -33,7 +25,7 @@ const ExperienceForm = (props) => {
             type="text"
             id="companyName"
             name="companyName"
-            value={formData.companyName}
+            value={props.expData.companyName}
             onChange={handleChange}
             placeholder="Enter company name"
             required
@@ -45,7 +37,7 @@ const ExperienceForm = (props) => {
             type="text"
             id="positionTitle"
             name="positionTitle"
-            value={formData.positionTitle}
+            value={props.expData.positionTitle}
             onChange={handleChange}
             placeholder="Enter position title"
             required
@@ -57,7 +49,7 @@ const ExperienceForm = (props) => {
             type="date"
             id="startDate"
             name="startDate"
-            value={formData.startDate}
+            value={props.expData.startDate}
             onChange={handleChange}
             required
           />
@@ -68,7 +60,7 @@ const ExperienceForm = (props) => {
             type="date"
             id="endDate"
             name="endDate"
-            value={formData.endDate}
+            value={props.expData.endDate}
             onChange={handleChange}
             required
           />
@@ -79,7 +71,7 @@ const ExperienceForm = (props) => {
             type="text"
             id="location"
             name="location"
-            value={formData.location}
+            value={props.expData.location}
             onChange={handleChange}
             placeholder="Enter location"
             required
@@ -90,7 +82,7 @@ const ExperienceForm = (props) => {
           <textarea
             id="description"
             name="description"
-            value={formData.description}
+            value={props.expData.description}
             onChange={handleChange}
             placeholder="Describe your responsibilities and achievements"
             rows="4"

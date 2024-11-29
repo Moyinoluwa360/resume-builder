@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {useState} from "react";
 import EducationForm from "./educationForm";
 import ExperienceForm from "./experienceForm";
-export default function ContentFn(prop){
+export default function ContentFn(props){
       const [eduToggled, setEduToggled] = useState("none")
       const [expToggled, setExpToggled] = useState("none")
       const [eduFormDisplay, setEduFormDisplay] = useState("false")
@@ -28,15 +28,15 @@ export default function ContentFn(prop){
 
       const handleChange = (e) => {
         const { name, value } = e.target;
-        prop.setPersonalData({
-          ...prop.personalData,
+        props.setPersonalData({
+          ...props.personalData,
           [name]: value,
         });
       };
     
       const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Form Submitted", prop.personalData);
+        console.log("Form Submitted", props.personalData);
       };
     
       return (
@@ -49,7 +49,7 @@ export default function ContentFn(prop){
                 type="text"
                 id="fullName"
                 name="fullName"
-                value={prop.personalData.fullName}
+                value={props.personalData.fullName}
                 onChange={handleChange}
                 placeholder="Enter your full name"
                 required
@@ -61,7 +61,7 @@ export default function ContentFn(prop){
                 type="email"
                 id="email"
                 name="email"
-                value={prop.personalData.email}
+                value={props.personalData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
                 required
@@ -73,7 +73,7 @@ export default function ContentFn(prop){
                 type="tel"
                 id="phoneNumber"
                 name="phoneNumber"
-                value={prop.personalData.phoneNumber}
+                value={props.personalData.phoneNumber}
                 onChange={handleChange}
                 placeholder="Enter your phone number"
                 required
@@ -84,7 +84,7 @@ export default function ContentFn(prop){
               <input
                 id="address"
                 name="address"
-                value={prop.personalData.address}
+                value={props.personalData.address}
                 onChange={handleChange}
                 placeholder="Enter your address"
                 rows="4"
@@ -112,7 +112,13 @@ export default function ContentFn(prop){
                 </div>
               </div>
             </div>
-            {eduFormDisplay === "true" ? <EducationForm setEduFormDisplay = {setEduFormDisplay}/> :""}
+            {eduFormDisplay === "true" ?
+               <EducationForm 
+                setEduFormDisplay = {setEduFormDisplay}
+                eduData = {props.eduData}
+                setEduData = {props.setEduData}
+                />
+                 :""}
           </EducationToggled>
           <Experience onClick={()=>{
             handleToggleChange("exp")
@@ -134,7 +140,12 @@ export default function ContentFn(prop){
                 </div>
               </div>
             </div>
-            {expFormDisplay === "true" ? <ExperienceForm setExpFormDisplay = {setExpFormDisplay} /> :""}
+            {expFormDisplay === "true" ? 
+              <ExperienceForm 
+                setExpFormDisplay = {setExpFormDisplay} 
+                expData = {props.expData}
+                setExpData = {props.setExpData}
+                /> :""}
           </ExperienceToggled>
         </Content>
       );

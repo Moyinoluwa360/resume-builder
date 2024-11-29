@@ -13,6 +13,10 @@ export default function ActionCenterFn (props){
                     <ContentFn
                     personalData = {props.personalData}
                     setPersonalData = {props.setPersonalData}
+                    eduData = {props.eduData}
+                    setEduData = {props.setEduData}
+                    expData = {props.expData}
+                    setExpData = {props.setExpData}
                 />
                 :
                     <CustomizeDiv 
