@@ -7,8 +7,6 @@ export default function ContentFn(props){
       const [expToggled, setExpToggled] = useState("none")
       const [eduFormDisplay, setEduFormDisplay] = useState("false")
       const [expFormDisplay, setExpFormDisplay] = useState("false")
-      const [eduDiv, setEduDiv] = useState("true")
-      const [expDiv, setExpDiv] = useState("true")
 
       const handleToggleChange = (bar)=>{
         if(bar === "edu" & eduToggled === "none"){
@@ -117,6 +115,8 @@ export default function ContentFn(props){
                 setEduFormDisplay = {setEduFormDisplay}
                 eduData = {props.eduData}
                 setEduData = {props.setEduData}
+                setEduDataArr = {props.setEduDataArr}
+                eduDataArr = {props.eduDataArr}
                 />
                  :""}
           </EducationToggled>
@@ -145,6 +145,8 @@ export default function ContentFn(props){
                 setExpFormDisplay = {setExpFormDisplay} 
                 expData = {props.expData}
                 setExpData = {props.setExpData}
+                setExpDataArr = {props.setExpDataArr}
+                expDataArr = {props.expDataArr}
                 /> :""}
           </ExperienceToggled>
         </Content>

@@ -12,7 +12,8 @@ const EducationForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Education Data Submitted:", props.eduData);
+    props.setEduDataArr([...props.eduDataArr, props.eduData])
+    props.setEduFormDisplay("false")
   };
 
   return (
@@ -77,9 +78,7 @@ const EducationForm = (props) => {
         </div>
         <Button type="submit" 
             style={{  }}
-            onClick={()=>{
-                props.setEduFormDisplay("false")
-            }}>
+            >
           save
         </Button>
       </form>

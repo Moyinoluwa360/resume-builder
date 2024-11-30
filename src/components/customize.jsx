@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default function CustomizeDiv(props){
     const handleColorChange = (event) => {
-    this.props.setColor(event.target.value);
+    props.setColor(event.target.value);
   };
   console.log(props.color)
     return(

@@ -29,6 +29,10 @@ function App() {
     location: "",
     description: "",
   });
+  const [eduDataArr, setEduDataArr] = useState([])
+  const [expDataArr, setExpDataArr] = useState([])
+
+  console.log(expDataArr)
   return (
     <Body>
       <ActionBars
@@ -45,10 +49,18 @@ function App() {
         setEduData = {setEduData}
         expData = {expData}
         setExpData = {setExpData}
+        setEduDataArr = {setEduDataArr}
+        setExpDataArr = {setExpDataArr}
+        eduDataArr = {eduDataArr}
+        expDataArr = {expDataArr}
         />
       <Resume 
         position = {personalInfoPos}
-        color = {color}/>
+        color = {color}
+        personalData = {personalData}
+        eduDataArr = {eduDataArr}
+        expDataArr = {expDataArr}
+        />
     </Body>
   )
 }

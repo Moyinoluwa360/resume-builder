@@ -13,7 +13,8 @@ const ExperienceForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Experience Data Submitted:", props.expData);
+    props.setExpDataArr([...props.expDataArr, props.expData])
+    props.setExpFormDisplay("false")
   };
 
   return (
@@ -91,9 +92,7 @@ const ExperienceForm = (props) => {
         </div>
         <Button type="submit" 
             style={{  }}
-            onClick={()=>{
-                props.setExpFormDisplay("false")
-            }}>
+            >
           save
         </Button>
       </form>

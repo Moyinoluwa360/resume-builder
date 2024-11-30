@@ -17,6 +17,10 @@ export default function ActionCenterFn (props){
                     setEduData = {props.setEduData}
                     expData = {props.expData}
                     setExpData = {props.setExpData}
+                    setEduDataArr = {props.setEduDataArr}
+                    setExpDataArr = {props.setExpDataArr}
+                    eduDataArr = {props.eduDataArr}
+                    expDataArr = {props.expDataArr}
                 />
                 :
                     <CustomizeDiv 
