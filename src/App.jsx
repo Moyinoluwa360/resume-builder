@@ -6,7 +6,7 @@ import { useState } from "react"
 
 function App() {
   const [personalInfoPos, setPersonalInfoPos] = useState("right")
-  const [color, setColor] = useState("#977676");
+  const [color, setColor] = useState("#ff8888");
   const [actionCenter, setActionCenter] = useState("content")
   const [personalData, setPersonalData] = useState({
     fullName: "",

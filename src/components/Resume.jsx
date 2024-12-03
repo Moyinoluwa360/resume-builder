@@ -7,21 +7,34 @@ export default function ResumeSec(props) {
           <div className="name">{props.personalData.fullName}</div>
           <div className="contactInfo" position={props.position}>
             <div className="email info">
-              <img src="/email.svg" alt="email icon" />
+              { props.personalData.email === "" ? "":
+               <img src="/email.svg" alt="email icon"/>
+              }
               <span>{props.personalData.email}</span>
             </div>
             <div className="phoneNo info">
-              <img src="/phone.svg" alt="phone icon" />
+              {
+                props.personalData.phoneNumber === "" ? "" :
+                <img src="/phone.svg" alt="phone icon" />
+              }
               <span>{props.personalData.phoneNumber}</span>
             </div>
             <div className="address info">
-              <img src="/location.svg" alt="location icon" />
+              {
+                props.personalData.address === "" ? "" :
+                <img src="/location.svg" alt="location icon" />
+              }
               <span>{props.personalData.address}</span>
             </div>
           </div>
         </PersonalInfoSec>
         <MainSec>
-
+          <div className="education" style={{color: props.color}}>
+            <div className="header"> Education</div>
+          </div>
+          <div className="experience" style={{color: props.color}}>
+            <div className="header"> Experience</div>
+          </div>
         </MainSec>
       </Resume>
     );
@@ -79,5 +92,20 @@ const PersonalInfoSec = styled.div`
 `
 const MainSec = styled.div`
     box-sizing: border-box;
-    padding: 5%;
+    padding: 2%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .header{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      background-color: #e7e7e7;
+      font-weight: bolder;
+      height: 30px;
+      font-size: 25px;
+      
+    }
 `
