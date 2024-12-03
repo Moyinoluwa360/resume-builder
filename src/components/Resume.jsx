@@ -29,11 +29,70 @@ export default function ResumeSec(props) {
           </div>
         </PersonalInfoSec>
         <MainSec>
-          <div className="education" style={{color: props.color}}>
-            <div className="header"> Education</div>
+          <div className="educationDiv div">
+            {
+              props.eduDataArr.length === 0 ? "" :
+              <div className="header" style={{color: props.color}}> Education</div>
+            }
+            {
+              props.eduDataArr.length === 0 ? "" :
+              props.eduDataArr.map((eduData)=>
+                (
+                  <div className="education styling">
+                    <div className="sec1">
+                      <div className="date">
+                        {eduData.startDate} -- {eduData.endDate}
+                      </div>
+                      <div className="location">
+                        {eduData.location}
+                      </div>
+                    </div>
+                    <div className="sec2">
+                      <div className="school">
+                        {eduData.school}
+                      </div>
+                      <div className="degree">
+                        {eduData.degree}
+                      </div>
+                      <div className="description">
+                        {eduData.description}
+                      </div>
+                    </div>
+                  </div>
+                )
+              )
+            }
           </div>
-          <div className="experience" style={{color: props.color}}>
-            <div className="header"> Experience</div>
+          <div className="experienceDiv div">
+            {
+              props.expDataArr.length === 0 ? "" :
+              <div className="header" style={{color: props.color}}> Experience</div>
+            }
+            {
+              props.expDataArr.length === 0 ? "" :
+              props.expDataArr.map((expData)=>
+                (
+                  <div className="experience styling">
+                    <div className="sec1">
+                      <div className="date">
+                        {expData.startDate} -- {expData.endDate}
+                      </div>
+                      <div className="location">
+                        {expData.location} 
+                      </div>
+                    </div>
+                    <div className="sec2">
+                      <div className="companyName">
+                        {expData.companyName}
+                      </div>
+                      <div className="positionTitle">
+                        {expData.positionTitle}
+                      </div>
+                    </div>
+                  </div>
+                )
+              )
+            }
           </div>
         </MainSec>
       </Resume>
@@ -106,6 +165,38 @@ const MainSec = styled.div`
       font-weight: bolder;
       height: 30px;
       font-size: 25px;
-      
+    }
+    .div{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .styling{
+        display: flex;
+        gap: 10px;
+        .sec1{
+          width: 35%;
+          display: flex;
+          flex-direction: column;
+          .date{
+            font-weight: bolder;
+          }
+          .location{
+            font-weight: bolder;
+          }
+        }
+        .sec2{
+          width: 65%;
+          display: flex;
+          flex-direction: column;
+          word-wrap: break-word;
+          gap: 5px;
+          .school{
+            font-weight: bolder;
+          }
+          .companyName{
+            font-weight: bolder;
+          }
+        }
+      }
     }
 `
